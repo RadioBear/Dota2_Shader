@@ -379,7 +379,7 @@ half4 Dota2Shader(FragmentCommonData s, UnityLight light, UnityIndirect gi)
 	half LdotH = saturate(dot(light.dir, halfDir));
 	half NdotV = abs(dot(normal, viewDir));
 	half NdotL = saturate(dot(normal, light.dir));
-	fixed halfLambert = NdotL * 0.5 + 0.5;
+	fixed halfLambert = dot(normal, light.dir) * 0.5 + 0.5;
 
 
 	// ****** Fresnel ******
